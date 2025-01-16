@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP - Mens Wear</title>
+  <link rel="stylesheet" href="../css/mens-wear.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <h1>VIP KURTA</h1>
+      </a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="../html/about.html">About</a></li>
+        <li><a href="../html/mens-wear.html">Mens</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+     
+      <ul>
+        <li><a href="#">Party Wears</a></li>
+        <li><a href="#">Haldi Wears</a></li>
+        <li><a href="#">Mehendi Wears</a></li>
+        <li><a href="#">Formal Wears</a></li>
+        <li><a href="#">Casual Wears</a></li>
+      </ul>
+    </aside>
+
+  
+  </div>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+ 
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  <script src="../js/mens-wear.js"></script>
+</body>
+</html>

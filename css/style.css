@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body {
+  margin: 0;
+  font-family: "Roboto", serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: beige;
+  color: white;
+  position: relative;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: rgb(236, 114, 84);
+  font-family: "Noto", serif;}
+
+.logo a {
+  text-decoration: none;
+}
+
+.nav-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1rem;
+  position: relative; /* Set position for pseudo-element */
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Position underline at the bottom of the text */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #18ad76;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Extend underline on hover */
+}
+
+/* Responsive Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(13, 13, 13);
+}
+
+@media (max-width: 768px) {
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column; /* Stack items vertically */
+    position: absolute;
+    top: 60px; /* Below the navbar */
+    right: 0; /* Align to the right */
+    background-color: #ffffff;
+    width: auto; /* Adjust menu width */
+    text-align: right; /* Align text to the right */
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 10px;
+    z-index: 1000; /* Bring it above other elements */
+
+  }
+
+  .nav-links.active {
+    display: flex; /* Show the menu when active */
+  }
+
+  .nav-links ul {
+    flex-direction: column; /* Ensure the list is vertical */
+    align-items: flex-end; /* Align links to the right */
+    color: rgb(234, 228, 228);
+  }
+
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.5rem;
+  }
+}
+.firstSection {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  overflow-x: scroll; /* Allow horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping behavior */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scrollbar-width: thin; /* Customizes scrollbar width for Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer */
+}
+
+.firstSection::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+}
+
+.image-container {
+  display: flex;
+  width: 100%; /* Set the container width to 100% */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-slide {
+  width: 100%; /* Each image takes up the full width of the viewport */
+  height: 100%; /* Full viewport height */
+  object-fit: cover; /* Ensure the image covers the full area */
+  scroll-snap-align: center; /* Ensures each image snaps to the center */
+  overflow: hidden; /* Prevent internal scrolling within images */
+  position: absolute;
+  transition: 1s;
+}
+
+/* Smooth scrolling */
+.firstSection {
+  scroll-behavior: smooth;
+}
+
+/* Dots navigation */
+.dots-container {
+  position: absolute;
+  bottom: 20px; /* Adjust vertical position */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.prev-next {
+  text-align: center;
+  position: absolute;
+  bottom: 10px; /* Position buttons at the bottom of the image */
+  width: 100%;
+}
+
+.prev-next button {
+  font-size: 25px;
+  padding: 5px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 6000;
+
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333; /* Highlight active dot */
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .image-slide {
+    width: 100vw;
+    height: 100vh;
+  }
+  .heading h1{
+    font-size: 1.7rem;
+    margin: 100px 0 20px 0;
+    
+  }
+  .collection-item img{
+    width: 300px;
+    height: 400px;
+  }
+  .prev-next button{
+    font-size: 20px;
+    margin-top: -50px;
+  }
+}
+
+.footerSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: beige;
+
+}
+.social-icons{
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  
+}
+.social-icons a{
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+  font-size: 1.7rem;
+  transition: color 0.3s ease;
+}
+.social-icons #instagram:hover{
+color: rgb(253, 128, 149);
+}
+.social-icons #facebook:hover{
+color: rgb(77, 134, 240);
+}
+.social-icons #whatsapp:hover{
+color: rgb(101, 245, 85);
+}
+.collectionSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+}
+.heading{
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: rgb(213, 74, 53);
+  font-family: "Roboto", serif;
+}.collection {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+  padding: 20px 0; /* Add padding for spacing */
+}
+
+.collection-item {
+  position: relative; /* Necessary for absolute positioning of button */
+  width: 400px;
+  height: 500px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the collection item */
+.collection-item:hover {
+  transform: scale(1.05); /* Slightly scale the container */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a larger shadow on hover */
+}
+
+.collection-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s ease, opacity 0.5s ease; 
+}
+
+.collection-item:hover img {
+  transform: scale(1.1); 
+  opacity: 0.9; 
+  cursor: pointer;
+}
+
+.collection-item .hover-btn {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none; 
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+  cursor: pointer;
+}
+
+/* Button hover animation */
+.collection-item:hover .hover-btn {
+  opacity: 1; /* Show the button */
+  pointer-events: auto; /* Enable interaction */
+  transform: translate(-50%, -50%) scale(1.1); /* Slightly scale the button */
+}
+
+/* Hover effect for replacing image */
+.image1:hover {
+  content: url('../assets/collection/black-kurta2.jpg'); /* Replace the image on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .collection-item {
+    width: 100%; /* Make the items full width */
+    height: auto; /* Adjust height */
+  }
+
+  .collection-item img {
+    height: auto; /* Adjust image height */
+  }
+
+  .hover-btn {
+    font-size: 0.9rem; /* Adjust button size for smaller screens */
+    padding: 10px 20px;
+  }
+  
+}
+
+
+.image2:hover {
+  content: url('../assets/collection/blue-kurta2.jpg'); /* Change the image when hovering */
+}
+.image3:hover {
+  content: url('../assets/collection/golden-kurta2.jpg'); /* Change the image when hovering */
+}
+.image4:hover {
+  content: url('../assets/collection/green-kurta2.jpg'); /* Change the image when hovering */
+}
+.image5:hover {
+  content: url('../assets/collection/yellow-kurta2.webp'); 
+}
+.image6:hover {
+  content: url('../assets/collection/red-kurta2.jpg'); 
+}
+.image7:hover {
+  content: url('../assets/collection/blue-kurta4.jpg'); 
+}
+.image8:hover {
+  content: url('../assets/collection/golden-kurta4.jpg'); 
+}
+.image9:hover {
+  content: url('../assets/collection/green-kurta4.jpg'); 
+}
+.image10:hover {
+  content: url('../assets/collection/pink-kurta2.jpg'); 
+}
+.image11:hover {
+  content: url('../assets/collection/red-kurta4.jpg');
+}
+.image12:hover {
+  content: url('../assets/collection/blue-kurta6.jpg');
+}
+.image13:hover {
+  content: url('../assets/collection/purple-kurta2.webp');
+}
+.image14:hover {
+  content: url('../assets/collection/pink-kurta4.jpg');
+}
+.image15:hover {
+  content: url('../assets/collection/pink-kurta5.jpg');
+}
+
+@media (max-width: 768px) {
+  .collection-item img{
+    width: 300px;
+    height: 400px;
+  }
+  .collection-item{
+    width: 300px;
+    height: 400px;
+  }
+  .contact-main{
+    flex-direction: column;
+
+  }
+  .carousel{
+    width: 300px;
+    height: 200px;
+  }
+  .contact-text{
+    width: 300px;
+  }
+}
+.contactSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.carousel {
+  width: 100%; /* Full width */
+  max-width: 600px; /* Optional: Limit max width */
+  height: 400px; /* Set height of the carousel */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures zoom effect doesn't go beyond container */
+  border-radius: 10px;
+  background-color: #f1f1f1; /* Optional: Background color */
+}
+
+#carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth zoom effect */
+}
+
+#carousel-image:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+.contact-heading{
+  font-size: 2.5rem;
+  margin: 20px 0;
+  color: rgb(213, 74, 53);
+  font-family: "Roboto", serif;
+}
+.contact-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+}
+.contact-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750px;
+
+}
+.contact-text button a{
+  text-decoration: none;
+color: rgb(255, 255, 255);
+}
+.contact-text button{
+  padding: 10px 20px;
+  background-color: rgb(79, 79, 79);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+.contact-text button:hover{
+  background-color: rgb(0, 0, 0);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .contact-main{
+    flex-direction: column;
+
+  }
+  .carousel{
+    width: 300px;
+    height: 200px;
+  }
+  .contact-text{
+    width: 300px;
+  }
+}
+
+.custom-carousel {
+  position: relative;
+  width: 500px; /* Set the max width of the section */
+  height: auto;
+  max-width: 500px; /* Limit to 500px */
+  overflow: hidden; /* Hide overflowing images */
+  margin: 0 auto; /* Center the section */
+}
+
+.custom-carousel h1 {
+  font-size: 2.5rem;
+  margin-top: 150px;
+  color: rgb(213, 74, 53);
+  font-family: "Roboto", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease; /* Smooth transition for sliding */
+  margin-bottom: 100px;
+}
+
+.carousel-item {
+  width: 100%; /* Image takes up 100% of the container width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 500px; /* Ensure the image doesn't exceed the container size */
+  flex-shrink: 0; /* Prevent shrinking */
+  border-radius: 20px;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+/* Optional: Add hover effects to buttons */
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .custom-carousel {
+    width: 100%;
+    max-width: 300px; /* Limit the width on smaller screens */
+    margin: 0 auto;
+  }
+
+  .carousel-item {
+    max-width: 300px; /* Limit the image width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .contact-heading{
+    font-size: 1.7rem;
+  }
+  .custom-carousel h1{
+    font-size: 1.7rem;
+  }
+}
