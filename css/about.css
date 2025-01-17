@@ -1,0 +1,78 @@
+/* Highlights Section - Light Mode */
+.highlights {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9f9f9; /* Light theme background */
+  color: #333333; /* Dark text for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.highlights-heading h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1a1a1a; /* Slightly darker for heading */
+}
+
+.highlights-img {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+  gap: 20px; /* Space between images */
+  justify-items: center;
+}
+
+.highlight img {
+  width: 100%;
+  max-width: 300px; /* Restrict maximum size */
+  height: 100%; /* Maintain square shape */
+  object-fit: cover; /* Ensure the image fills the square without distortion */
+  border: 5px solid #e0e0e0; /* Light gray border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomOut 0.8s ease-in-out; /* Apply zoom-out animation */
+
+}
+
+.highlight img:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .highlights-img {
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    gap: 15px;
+  }
+
+  .highlights-heading h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlights-img {
+    grid-template-columns: 1fr; /* 1 image per row */
+  }
+
+  .highlight img {
+    max-width: 200px; /* Adjust image size for smaller screens */
+  }
+
+  .highlights-heading h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.4); /* Start slightly zoomed in */
+  }
+  100% {
+    transform: scale(1); /* Return to original size */
+  }
+}

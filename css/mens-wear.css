@@ -1,119 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body {
-  margin: 0;
-  font-family: "Roboto", serif;
-  overflow-x: hidden;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: beige;
-  color: white;
-  position: relative;
-}
-
-.logo h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: rgb(236, 114, 84);
-  font-family: Noto, serif;
-}
-
-.logo a {
-  text-decoration: none;
-}
-
-
-.nav-links ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 0.2rem;
-  font-size: 1.3rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding: 0.5rem 1rem;
-  position: relative; /* Set position for pseudo-element */
-  transition: color 0.3s ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0; /* Position underline at the bottom of the text */
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #18ad76;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%; /* Extend underline on hover */
-}
-
-/* Responsive Styles */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: rgb(13, 13, 13);
-}
-
-@media (max-width: 768px) {
-  .logo h1 {
-    font-size: 2rem;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column; /* Stack items vertically */
-    position: absolute;
-    top: 60px; /* Below the navbar */
-    right: 0; /* Align to the right */
-    background-color: #fffefe;
-    width: auto; /* Adjust menu width */
-    text-align: right; /* Align text to the right */
-    gap: 1rem;
-    padding: 1rem;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
-    margin-top: 10px;
-  }
-
-  .nav-links.active {
-    display: flex; /* Show the menu when active */
-  }
-
-  .nav-links ul {
-    flex-direction: column; /* Ensure the list is vertical */
-    align-items: flex-end; /* Align links to the right */
-    color: rgb(234, 228, 228);
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 0.5rem;
-  }
-}
 
 
 .container {
@@ -145,13 +29,13 @@ body {
 
 .sidebar ul li a {
   text-decoration: none;
-  color: #6d6b6b;
+  color: #000000;
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
 .sidebar ul li a:hover {
-  color: #91beef;
+  color: #888889;
 }
 
 
